@@ -1,0 +1,10 @@
+{
+  "description": "Empowering Grade 9 students in Vietnam to master mathematics through personalized learning paths, adaptive practice, and AI tutoring, while enabling teachers to manage curriculum and track progress.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

@@ -1,0 +1,8 @@
+.app .admin-mobile-nav{display:none}
+.sheet-backdrop.admin-navigation-backdrop{display:none}
+.admin-navigation-sheet .section-head>button{display:flex;align-items:center;justify-content:center;min-width:44px;min-height:44px}
+.admin-navigation-sheet .settings-row[aria-current=page]{font-weight:650}
+@media(max-width:767px){
+  .app .admin-mobile-nav{display:grid}
+  .sheet-backdrop.admin-navigation-backdrop{display:flex}
+}

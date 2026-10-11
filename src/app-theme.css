@@ -1,0 +1,151 @@
+:root{--app-bg:#f6f7fa;--app-surface:#fff;--app-raised:#f1f5f9;--app-text:#0f172a;--app-secondary:#64748b;--app-border:#e2e8f0}
+html[data-theme=dark]{--app-bg:#0b1020;--app-surface:#111827;--app-raised:#151d2e;--app-text:#f8fafc;--app-secondary:#a3aec0;--app-border:#2b3649;background:var(--app-bg);color:var(--app-text)}
+body,.app{background:var(--app-bg)}
+.app{transition:background-color .2s,color .2s}
+.app :is(.card,.topbar,.sidebar,.modal,.mobile-sheet,.button,input,textarea,select,.mobile-nav){transition:background-color .2s,color .2s,border-color .2s}
+.app[data-theme=dark]{--primary:#6977f8;--border:#2b3649;--muted:#a3aec0;color:#d5dce8;background:#0b1020}
+.app[data-theme=dark] :is(h1,h2,h3,h4){color:#f8fafc}
+.app[data-theme=dark] p{color:#a3aec0}
+.app[data-theme=dark] :is(.sidebar,.sidebar-bottom){background:#0e1525;border-color:#2b3649}
+.app[data-theme=dark] :is(.card,.stat-card,.topbar,.modal,.profile-main,.notifications,.tool-panel,.settings-panel,.table-card,.tutor){background:#111827;border-color:#2b3649;box-shadow:none}
+.app[data-theme=dark] :is(.card,.stat-card,.topbar,.modal,.mobile-sheet,.toast,.profile-block,.brand,.profile-main,.settings-row){color:#d5dce8}
+.app[data-theme=dark] :is(.nav-item,.nav-label,.mode-switch,.profile-block small,.brand small,.header-context,.header-context strong,.header-search,.bell-button,.level-indicator,.level-indicator strong){color:#a3aec0}
+.app[data-theme=dark] .nav-item.active{background:#151d2e;color:#a5b4fc}
+.app[data-theme=dark] .nav-item.active:before{background:#6977f8}
+.app[data-theme=dark] .nav-item:hover{background:#151d2e;color:#b6bdff}
+.app[data-theme=dark] :is(.avatar,.ai-mini,.nav-count,.count-pill){background:#202b3d;border-color:#3b475d;color:#c7d2fe}
+.app[data-theme=dark] .header-divider{background:#2b3649}
+.app[data-theme=dark] :is(.header-search kbd,.date-label,.subtle-tag,.tabs,.lesson-stepper button span,.question-nav button,.table-footer button){background:#151d2e;border-color:#2b3649;color:#a3aec0}
+.app[data-theme=dark] :is(input,textarea,select,.search-field){background:#151d2e;color:#f8fafc;border-color:#3b475d}
+.app[data-theme=dark] :is(input,textarea)::placeholder{color:#94a3b8}
+.app[data-theme=dark] :is(input,textarea,select):focus{outline-color:#6977f8}
+.app[data-theme=dark] .search-field input{background:transparent}
+.app[data-theme=dark] :is(.button.secondary,.outline-amber,.ai-card button,.exam-outline){background:#151d2e;border-color:#3b475d;color:#d5dce8}
+.app[data-theme=dark] .button:not(.secondary){background:#6977f8;color:#fff}
+.app[data-theme=dark] .button:not(.secondary):hover{background:#7c89ff}
+.app[data-theme=dark] :is(.text-button,.difficulty-card .text-button,.help-button){color:#a5b4fc}
+.app[data-theme=dark] :is(.progress,.continue-progress .progress){background:#263147}
+.app[data-theme=dark] .progress>div{background:#6977f8}
+.app[data-theme=dark] :is(.continue-card,.practice-page .practice-hero){background:#151d2e;border-color:#2b3649}
+.app[data-theme=dark] :is(.continue-card h2,.practice-page .practice-hero h2){color:#f8fafc}
+.app[data-theme=dark] :is(.continue-card p,.lesson-subtitle,.continue-card .eyebrow,.practice-page .eyebrow,.practice-page .practice-hero p){color:#a3aec0}
+.app[data-theme=dark] .graph-illustration{opacity:.65}
+.app[data-theme=dark] .practice-graph{color:#a5b4fc}
+.app[data-theme=dark] :is(.math-annotation,.math-footnote){color:#a3aec0}
+.app[data-theme=dark] :is(.stat-card>span:last-child,.activity-row>div>span,.chart-scale,.bar-column>span,.chart-legend,.chart-summary strong span,.growth span,.card-description,.xp,.mini-progress>span,.mission-footer span,.badges-preview>div>span,.muted,.contents>span,.contents small,.contents a,.difficulty-card p,.difficulty-number,.timeline-item small,.timeline-item>div>span,.goal-card>div>span,.completion-stats span,.notification-row small,.table-footer){color:#a3aec0}
+.app[data-theme=dark] :is(.activity-row,.mission,.chart-legend,.lesson-row,.lesson-stepper,.reading-footer,.question-actions,.completion-stats,.notification-row,.settings-row,.table-footer,.practice-page .difficulty-grid,.practice-page .difficulty-card){border-color:#2b3649}
+.app[data-theme=dark] .chart-bars{background-image:repeating-linear-gradient(to top,transparent 0,transparent calc(25% - 1px),#2b3649 calc(25% - 1px),#2b3649 25%)}
+.app[data-theme=dark] .bar{background:#6977f8}
+.app[data-theme=dark] .bar-column:nth-child(4) .bar{background:#a5b4fc}
+.app[data-theme=dark] .future .bar{background:#2d374d}
+.app[data-theme=dark] .weak-card{background:#191d28;border-color:#44392b}
+.app[data-theme=dark] .weak-card p{color:#b8b0a4}
+.app[data-theme=dark] .ai-card{background:#191d32;border-color:#333354}
+.app[data-theme=dark] :is(.ai-card h3,.ai-card p){color:#c5c1e8}
+.app[data-theme=dark] .ai-decoration{color:#7c6cf2;opacity:.15}
+.app[data-theme=dark] :is(.green,.badge.green,.icon-box.green){background:#13302b;color:#62d4ae}
+.app[data-theme=dark] :is(.amber,.orange,.badge.amber){background:#302819;color:#f5c96a}
+.app[data-theme=dark] :is(.purple,.indigo,.blue,.badge.indigo){background:#202440;color:#b0b8ff}
+.app[data-theme=dark] :is(.neutral,.badge.neutral){background:#202b3d;color:#bbc5d6}
+.app[data-theme=dark] :is(.red,.badge.red){background:#35202a;color:#fda4a4}
+.app[data-theme=dark] .mission.done strong{color:#94a3b8}
+.app[data-theme=dark] :is(.mission-check,.lesson-icon){border-color:#3b475d}
+.app[data-theme=dark] .mission.done .mission-check{background:#159b70;color:#fff;border-color:#159b70}
+.app[data-theme=dark] :is(.medal-0,.medal-1,.medal-2){background:#202b3d;color:#b7bfe5}
+.app[data-theme=dark] :is(.chapter-number,.lesson-icon.complete,.lesson-stepper .current span){background:#202440;color:#b0b8ff;border-color:#3b475d}
+.app[data-theme=dark] .lesson-row:hover{background:#151d2e}
+.app[data-theme=dark] :is(.formula,.note,.help-button){background:#151d2e;border-color:#3b475d;color:#f8fafc}
+.app[data-theme=dark] :is(.formula small,.note p){color:#bdc6d5}
+.app[data-theme=dark] .inline-math{color:#f8fafc}
+.app[data-theme=dark] .solution-step>span{background:#202440;color:#b0b8ff}
+.app[data-theme=dark] .solution-step small{color:#a3aec0}
+.app[data-theme=dark] :is(.practice-page .difficulty-card,.practice-page .difficulty-card:hover){background:transparent}
+.app[data-theme=dark] :is(.practice-page .difficulty-card h3,.practice-page .difficulty-number){color:#d5dce8}
+.app[data-theme=dark] .difficulty-indicator i{background:#3b475d}
+.app[data-theme=dark] .difficulty-indicator i.filled{background:#6977f8}
+.app[data-theme=dark] .practice-page .mistake-action{background:#151d2e;border-color:#3b475d}
+.app[data-theme=dark] :is(.practice-page .mistake-action p,.practice-page .difficulty-card p){color:#a3aec0}
+.app[data-theme=dark] :is(.answer,.practice-session .answer){background:#111827;border-color:#3b475d;color:#d5dce8}
+.app[data-theme=dark] .answer>span{background:#151d2e;border-color:#3b475d;color:#a3aec0}
+.app[data-theme=dark] :is(.answer.chosen,.practice-session .answer.chosen){background:#1d2441;border-color:#6977f8;color:#c7d2fe}
+.app[data-theme=dark] :is(.answer.correct,.practice-session .answer.correct){background:#132b25;border-color:#20b486;color:#83daba}
+.app[data-theme=dark] :is(.answer.incorrect,.practice-session .answer.incorrect){background:#30202a;border-color:#f87171;color:#fda4a4}
+.app[data-theme=dark] .question-card .formula{background:transparent}
+.app[data-theme=dark] :is(.question-prompt,.practice-session .question-prompt){color:#d5dce8}
+.app[data-theme=dark] :is(.feedback.success,.feedback.wrong){background:#151d2e;border-color:#3b475d;color:#d5dce8}
+.app[data-theme=dark] .feedback.success h3{color:#62d4ae}
+.app[data-theme=dark] .feedback.wrong h3{color:#f5c96a}
+.app[data-theme=dark] .question-actions{background:#111827}
+.app[data-theme=dark] .question-nav .selected{background:#6977f8;color:#fff}
+.app[data-theme=dark] :is(.completion-icon,.timeline-dot){background:#202440;color:#b0b8ff}
+.app[data-theme=dark] .timeline-item.current .timeline-dot{background:#6977f8;color:#fff}
+.app[data-theme=dark] .timeline-item:after{background:#3b475d}
+.app[data-theme=dark] :is(.tutor-context,.ai-support hr,.contents hr){border-color:#2b3649}
+.app[data-theme=dark] .assistant-message>div{background:#151d2e;border-color:#2b3649}
+.app[data-theme=dark] .assistant-message p{color:#d5dce8}
+.app[data-theme=dark] .assistant-message small{color:#a3aec0}
+.app[data-theme=dark] .student-message{background:#222943;border-color:#394367;color:#d5dce8}
+.app[data-theme=dark] .image-student-message p{color:#d5dce8}
+.app[data-theme=dark] .image-composer-region{background:#0b1020}
+.app[data-theme=dark] :is(.composer,.image-composer){background:#111827;border-color:#3b475d}
+.app[data-theme=dark] .image-composer-row textarea{background:transparent;color:#f8fafc}
+.app[data-theme=dark] .quick-actions{background:#0b1020}
+.app[data-theme=dark] .quick-actions button{background:#151d2e;border-color:#3b475d;color:#bec7de}
+.app[data-theme=dark] :is(.send-image-button,.composer>button){background:#6977f8;color:#fff}
+.app[data-theme=dark] .attach-image-button:hover{background:#202b3d}
+.app[data-theme=dark] :is(.attachment-preview img,.sent-images img){background:#151d2e;border-color:#3b475d}
+.app[data-theme=dark] .attachment-preview .remove-attachment{background:#202b3d;border-color:#3b475d;color:#d5dce8}
+.app[data-theme=dark] .replace-attachment{color:#b0b8ff}
+.app[data-theme=dark] :is(.image-attachment-sheet,.mobile-sheet){background:#111827;color:#d5dce8}
+.app[data-theme=dark] .image-attachment-sheet button{border-color:#2b3649;color:#d5dce8}
+.app[data-theme=dark] .sheet-handle{background:#3b475d}
+.app[data-theme=dark] :is(.notification-row.unread,.notification-row:hover){background:#151d2e}
+.app[data-theme=dark] :is(th,.table-footer){background:#151d2e}
+.app[data-theme=dark] :is(td,th){border-color:#2b3649;color:#a3aec0}
+.app[data-theme=dark] td strong{color:#d5dce8}
+.app[data-theme=dark] td small{color:#a3aec0}
+.app[data-theme=dark] :is(.tabs button.selected,.table-footer .selected){background:#202440;color:#b0b8ff}
+.app[data-theme=dark] .toggle{background:#3b475d}
+.app[data-theme=dark] .toggle.on{background:#6977f8}
+.app[data-theme=dark] .toggle span{background:#e2e8f0}
+.app[data-theme=dark] :is(.modal .upload-zone,.theme-options button.selected){background:#202440;border-color:#3b475d;color:#b0b8ff}
+.app[data-theme=dark] :is(.toast,.theme-popover){background:#1b2537;border-color:#3b475d;color:#d5dce8}
+.app[data-theme=dark] :is(.theme-options button,.theme-settings>p,.theme-switcher summary){color:#a3aec0}
+.app[data-theme=dark] .theme-options button:hover{background:#202440;color:#b0b8ff}
+.app[data-theme=dark] .theme-settings .theme-options button{border-color:#3b475d}
+.app[data-theme=dark] :is(.modal-backdrop,.sheet-backdrop,.image-sheet-backdrop){background:#070b15b3}
+/* Preserve the exam's dedicated dark palette; shared text rules must not override it. */
+.app[data-theme=dark] .exam-workspace :is(h1,h2,h3){color:#f8fafc}
+.app[data-theme=dark] .exam-workspace .exam-math{color:#f8fafc}
+@media(prefers-reduced-motion:reduce){.app,.app *{transition:none!important}}
+@media(max-width:767px){
+  .app .sidebar{display:none}
+  .app .app-body{margin-left:0}
+  .app main{padding-bottom:calc(112px + env(safe-area-inset-bottom))}
+  .app .mobile-nav{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));position:fixed;bottom:0;left:0;right:0;height:calc(80px + env(safe-area-inset-bottom));padding:8px 8px calc(8px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid #e8eaf0;box-shadow:0 -4px 20px #0f172a05;z-index:40;overflow:visible;backdrop-filter:none}
+  .app .mobile-nav>button{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;width:100%;min-height:56px;padding:4px 0;color:#7c8494;font-size:11px;font-weight:500}
+  .app .mobile-nav>button.active{color:#111827;font-weight:650}
+  .app .mobile-nav>button.active:not(.mobile-ai-tab):after{content:'';position:absolute;bottom:0;left:calc(50% - 9px);width:18px;height:3px;border-radius:2px;background:#4f46e5}
+  .app .mobile-nav-icon{display:flex;align-items:center;justify-content:center;height:24px}
+  .app .mobile-nav>button svg{color:inherit;background:none;box-shadow:none;border-radius:0}
+  .app .mobile-nav .mobile-ai-tab{gap:4px;justify-content:flex-end;padding-bottom:5px}
+  .app .mobile-nav .mobile-ai-tab .mobile-nav-icon{position:absolute;top:-24px;width:60px;height:60px;background:#4f46e5;color:#fff;border-radius:19px;border:4px solid #fff;box-shadow:0 4px 12px #4f46e522;transition:background .2s}
+  .app .mobile-nav .mobile-ai-tab .mobile-nav-icon svg{width:28px;height:28px;color:white}
+  .app .mobile-nav .mobile-ai-tab.active .mobile-nav-icon{background:#4338ca;box-shadow:0 4px 16px #4f46e535}
+  .app .mobile-nav .mobile-ai-tab.active{color:#4f46e5}
+  .app[data-theme=dark] .mobile-nav{background:#101728;border-color:#263147;box-shadow:none}
+  .app[data-theme=dark] .mobile-nav>button{color:#8d99ae}
+  .app[data-theme=dark] .mobile-nav>button.active{color:#f8fafc}
+  .app[data-theme=dark] .mobile-nav>button.active:after{background:#6977f8}
+  .app[data-theme=dark] .mobile-nav .mobile-ai-tab .mobile-nav-icon{background:#6977f8;border-color:#101728;box-shadow:0 4px 14px #6977f81f}
+  .app[data-theme=dark] .mobile-nav .mobile-ai-tab.active .mobile-nav-icon{background:#7c89ff}
+  .app .mobile-sheet{padding-bottom:calc(24px + env(safe-area-inset-bottom))}
+  .app .mobile-sheet .settings-row{min-height:52px;font-size:15px}
+  .app .mobile-sheet .theme-settings button{min-height:44px}
+  .app:has(.modal-backdrop) .mobile-nav,.app:has(.sheet-backdrop) .mobile-nav,.app:has(.image-sheet-backdrop) .mobile-nav{visibility:hidden}
+  .app.ai-image-view .image-composer-region{bottom:calc(80px + env(safe-area-inset-bottom))}
+  .app.ai-image-view .quick-actions{bottom:calc(148px + env(safe-area-inset-bottom))}
+  .app.ai-image-view:has(.attachment-previews) .quick-actions{bottom:calc(292px + env(safe-area-inset-bottom))}
+  .app.practice-session main{padding-bottom:calc(112px + env(safe-area-inset-bottom))}
+  .app.exam-shell main{padding:0}
+}
