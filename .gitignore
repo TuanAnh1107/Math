@@ -2,6 +2,15 @@ node_modules/
 dist/
 build/
 .cache/
+.backups/
+*.bundle
+# Private keys and local credential stores must never be published.
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+service-account*.json
 .env*
 !.env.example
 !**/.env.example
