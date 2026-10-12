@@ -1,0 +1,71 @@
+/* Decorative only: scoped to this visual, with no controls or pointer response. */
+.app .living-math-visual,
+.app .living-math-visual * {
+  pointer-events: none;
+  cursor: default;
+}
+.app .living-math-visual {
+  --living-grid: #818cf8;
+  --living-axis: #8a8eb5;
+  --living-label: #737896;
+  --living-dot: #ffffff;
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  max-width: 440px;
+  justify-self: center;
+  overflow: hidden;
+  user-select: none;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #ffffff50, #eef2ff20 55%, #e0f2fe35);
+}
+.living-math-visual svg { display: block; width: 100%; height: auto; }
+.living-math-grid { stroke: var(--living-grid); stroke-width: .65; opacity: .14; }
+.living-math-axes { stroke: var(--living-axis); stroke-width: .85; fill: none; opacity: .65; }
+.living-math-axis-labels { fill: var(--living-label); font: italic 11px Georgia, serif; }
+.living-math-trace { fill: none; stroke-width: 2.3; stroke-linecap: round; stroke-dasharray: 1; }
+.living-math-line-glow { fill: none; stroke-width: 9; stroke-linecap: round; opacity: .1; }
+.living-math-guides { fill: none; stroke: var(--living-grid); stroke-width: .9; stroke-dasharray: 3 5; opacity: .3; }
+.living-math-halo { fill: #818cf817; }
+.living-math-halo-inner { fill: #818cf826; }
+.living-math-dot { fill: var(--living-dot); stroke: #818cf8; stroke-width: 1.7; }
+.living-math-equation { fill: #7165a3; font: italic 14px Georgia, serif; letter-spacing: .5px; opacity: .8; }
+.living-math-symbols { fill: #818cf8; font: italic 17px Georgia, serif; opacity: .22; }
+.living-math-symbol { animation: living-symbol-drift 24s ease-in-out infinite alternate; }
+.living-math-symbol-second { animation-duration: 29s; animation-direction: alternate-reverse; }
+.living-math-visual:not([data-living-animation=running]) .living-math-symbol { animation-play-state: paused; }
+.app[data-theme=dark] .living-math-visual {
+  --living-grid: #a5b4fc;
+  --living-axis: #8b96bd;
+  --living-label: #a7b4ce;
+  --living-dot: #eef2ff;
+  background: linear-gradient(135deg, #818cf806, #38bdf808);
+}
+.app[data-theme=dark] .living-math-grid { opacity: .12; }
+.app[data-theme=dark] .living-math-equation { fill: #c4b5fd; }
+.app[data-theme=dark] .living-math-symbols { fill: #a5b4fc; opacity: .25; }
+@keyframes living-symbol-drift {
+  from { transform: translateY(0); }
+  to { transform: translateY(-5px); }
+}
+@media (max-width: 1199px) {
+  .app .living-math-visual { max-width: 420px; }
+}
+@media (max-width: 767px) {
+  .app .living-math-visual { max-width: 360px; }
+  .living-math-symbols { display: none; }
+  .living-math-line-glow { display: none; }
+}
+/* Match the first animated frame before effects/visibility callbacks run. */
+@media (prefers-reduced-motion: no-preference) {
+  .living-math-trace { stroke-dashoffset: 1; }
+  .living-math-line-glow,
+  .living-math-guides,
+  .living-math-point { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .living-math-visual * { animation: none !important; transition: none !important; }
+  .living-math-trace { stroke-dashoffset: 0 !important; }
+  .living-math-point { opacity: 1 !important; }
+  .living-math-guides { opacity: .3 !important; }
+}

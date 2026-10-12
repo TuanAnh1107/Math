@@ -8,6 +8,9 @@ import './image-composer.css'
 import './exam.css'
 import './exam-dark.css'
 import './app-theme.css'
+import './motion.css'
+import './signature.css'
+import './living-math.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

@@ -1,0 +1,29 @@
+{
+  "name": "math-mentor-ai-server",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "typecheck": "tsc --noEmit",
+    "build": "tsc",
+    "start": "node dist/server/src/index.js",
+    "test": "tsx --test tests/*.test.ts && npm run test:pure",
+    "test:pure": "node --test tests/pure-config.test.cjs"
+  },
+  "dependencies": {
+    "@google/genai": "^2.28.0",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "sharp": "^0.35.5"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^22.0.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}

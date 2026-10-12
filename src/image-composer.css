@@ -12,8 +12,13 @@
 .attachment-preview{position:relative;width:112px;flex-shrink:0}
 .attachment-preview img{width:112px;height:80px;object-fit:cover;border:1px solid #e2e8f0;border-radius:8px}
 .attachment-preview .remove-attachment{position:absolute;right:0;top:0;background:#fff;border:1px solid #e2e8f0;border-radius:0 8px 0 8px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:#475569}
+.attachment-placeholder{width:112px;height:80px;display:flex;align-items:center;justify-content:center;border:1px solid #e2e8f0;border-radius:8px;background:#f8fafc;color:#64748b}
+.attachment-status{display:block;min-height:34px;padding:6px 2px;font-size:11px;line-height:1.4;color:#475569}
+.attachment-preview.error .attachment-status,.attachment-error{color:#9a3412}
+.attachment-preview.reading .attachment-status:before{content:'';display:inline-block;width:10px;height:10px;margin-right:7px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;vertical-align:-2px;animation:attachment-spin .8s linear infinite}
+.retry-attachment{min-height:36px;padding:4px 8px;font-size:12px;color:#4338ca;text-decoration:underline}
 .replace-attachment{font-size:12px;color:#4f46e5;min-height:36px;width:100%;text-align:left}
-.attachment-error{font-size:13px;color:#b45309;padding:8px 0}
+.attachment-error{font-size:13px;padding:8px 0}
 .image-sheet-backdrop{position:fixed;inset:0;background:#11182766;z-index:100;display:flex;align-items:flex-end}
 .image-attachment-sheet{background:white;width:100%;border-radius:20px 20px 0 0;padding:12px 16px calc(16px + env(safe-area-inset-bottom))}
 .sheet-handle{display:block;width:32px;height:4px;border-radius:4px;background:#cbd5e1;margin:0 auto 20px}
@@ -31,15 +36,12 @@
 .inline-question-edit textarea{font-size:14px;line-height:1.7}
 .inline-question-edit .button{font-size:13px;margin-top:12px;min-height:44px}
 .confirmed-image-question{white-space:pre-wrap;border-left:2px solid #818cf8;padding-left:12px}
+@keyframes attachment-spin{to{transform:rotate(360deg)}}
 @media(max-width:767px){
-  .ai-image-view main{padding-bottom:270px}
-  .ai-image-view .image-composer-region{position:fixed;bottom:calc(72px + env(safe-area-inset-bottom));left:0;right:0;margin:0;background:#f8fafc;z-index:42;padding:8px 16px}
+  .ai-image-view .image-composer-region{margin:0;background:transparent;padding:4px 10px}
   .image-composer-row textarea{font-size:16px}
   .attachment-preview .remove-attachment{width:44px;height:44px}
-  .replace-attachment{min-height:44px;font-size:14px}
-  .ai-image-view .quick-actions{position:fixed;bottom:calc(140px + env(safe-area-inset-bottom));left:0;right:0;z-index:41;background:#f8fafc;display:flex;flex-wrap:nowrap;overflow:auto;padding:8px 16px}
-  .ai-image-view:has(.attachment-previews) .quick-actions{bottom:calc(284px + env(safe-area-inset-bottom))}
-  .ai-image-view:has(.attachment-previews) main{padding-bottom:400px}
+  .replace-attachment,.retry-attachment{min-height:44px;font-size:14px}
   .ai-image-view .quick-actions button{flex-shrink:0;min-height:44px;font-size:13px;white-space:nowrap}
   .image-reading-response{margin-left:0;max-width:100%!important}
   .sent-images img{width:180px}

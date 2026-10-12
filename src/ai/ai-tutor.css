@@ -1,0 +1,32 @@
+.ai-mode-picker{display:flex;align-items:center;gap:8px;font-size:11px;min-width:0}
+.app .ai-mode-picker select{width:auto;max-width:190px;padding:6px 9px;font-size:11px;min-height:36px}
+.tutor-context{flex-wrap:wrap;gap:10px}
+.ai-turn,.math-markdown{min-width:0;max-width:100%}
+.math-markdown{overflow-wrap:anywhere;line-height:1.75}
+.math-markdown p{white-space:normal}
+.math-markdown :is(ul,ol){padding-left:22px;margin:10px 0}
+.math-markdown li+li{margin-top:6px}
+.math-markdown .katex-display{overflow-x:auto;overflow-y:hidden;padding-block:.3rem;max-width:100%;margin:12px 0}
+.math-markdown pre{max-width:100%;overflow:auto;padding:10px;border-radius:8px;background:#64748b10}
+.math-markdown table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse}
+.math-markdown :is(th,td){padding:6px 10px;border:1px solid var(--app-border)}
+.math-markdown blockquote{margin:10px 0;padding-left:12px;border-left:3px solid #818cf8}
+.math-markdown a{color:#5540bc;text-decoration:underline}
+.ai-connection-notice,.ai-request-error,.ai-request-progress{font-size:11px;padding:10px 14px;line-height:1.6}
+.ai-connection-notice{background:#f59e0b0d;color:#8a5a10}
+.ai-request-error{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;background:#ef44440c;color:#b42339;border-radius:8px;margin:0 0 8px}
+.ai-request-progress{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:4px 0;color:#655cb0}
+.ai-turn-error{font-size:11px;color:#b42339;margin:8px 0}
+.ai-latest-anchor{height:1px;scroll-margin-bottom:calc(var(--ai-dock-height,200px) + var(--ai-keyboard-inset,0px) + 110px)}
+.ai-turn .inline-question-edit{margin:10px 0 18px;padding:10px 14px;border:1px solid var(--app-border);border-radius:9px}
+.app[data-theme=dark] .math-markdown a{color:#c4b5fd}
+.app[data-theme=dark] :is(.ai-request-error,.ai-turn-error){color:#fda4af}
+.app[data-theme=dark] .ai-connection-notice{color:#fcd34d}
+.app[data-theme=dark] .ai-request-progress{color:#c4b5fd}
+@media(max-width:767px){
+ .app .ai-mode-picker select{min-height:44px;max-width:170px;font-size:12px}
+ .ai-request-error,.ai-request-progress{font-size:12px}
+ .ai-request-error .text-button,.ai-request-progress .text-button{min-height:40px}
+ .app .ai-composer-dock .quick-actions{position:static;transform:none;margin:0 0 8px;flex-wrap:wrap}
+ .ai-connection-notice{font-size:12px}
+}

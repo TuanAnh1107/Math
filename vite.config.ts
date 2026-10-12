@@ -5,6 +5,9 @@ import path from 'node:path'
 
 import siteConfiguration from './.figma/make/site.json'
 
+// Preserve the dev server's loopback CORS policy; API OPTIONS must reach Express.
+const devCors = { origin: /^https?:\/\/(?:(?:[^:]+\.)?localhost|127\.0\.0\.1|\[::1\])(?::\d+)?$/, preflightContinue: true }
+
 
 // Vite config — https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -31,9 +34,13 @@ react(),
       },
     },
     server: {
+      cors: devCors,
       host: process.env.FIGMA_DEV_SERVER_HOST || '0.0.0.0',
       port: parseInt(process.env.PORT || '8443'),
       strictPort: true,
+      proxy: {
+        '/api/ai': { target: process.env.AI_PROXY_TARGET || 'http://127.0.0.1:3001', changeOrigin: false },
+      },
       watch: {
         ignored: [
           '**/.figma/**',
@@ -41,8 +48,12 @@ react(),
       },
     },
     preview: {
+      cors: devCors,
       host: process.env.FIGMA_DEV_SERVER_HOST || '0.0.0.0',
       port: parseInt(process.env.PORT || '8443'),
+      proxy: {
+        '/api/ai': { target: process.env.AI_PROXY_TARGET || 'http://127.0.0.1:3001', changeOrigin: false },
+      },
     },
   }
 })
@@ -86,12 +97,12 @@ function figmaSiteConfiguration(config: FigmaSiteConfiguration): Plugin {
     return html.replace(`<!-- ${slotName} -->`, content)
   }
 
-  const title = config.title ?? "Figma Make App"
+  const title = config.title ?? "Math Mentor"
   const description = config.description ?? ''
   // Imported HTML keeps its own favicon; new Makes default to the Make product icon.
   const favicon = config.icons?.icon ?? '/favicon.svg'
   const socialImage = config.openGraph?.image ?? ''
-  const language = sanitizeHtmlValue(config.language) || 'en'
+  const language = sanitizeHtmlValue(config.language) || 'vi'
   const googleAnalyticsId = sanitizeHtmlValue(config.analytics?.googleAnalyticsId)
   const headStart = config.customScripts?.headStart ?? ''
   const headEnd = config.customScripts?.headEnd ?? ''
@@ -130,7 +141,7 @@ function figmaSiteConfiguration(config: FigmaSiteConfiguration): Plugin {
         result = replaceHtmlCommentSlot(result, 'figma:body-end', bodyEnd)
 
         const tags: HtmlTagDescriptor[] = []
-        if (description) {
+        if (description && !/<meta\s+name=["']description["']/i.test(result)) {
           tags.push({ tag: 'meta', attrs: { name: 'description', content: description }, injectTo: 'head' })
         }
         if (config.robots?.index === false) {

@@ -1,0 +1,135 @@
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .app:not(.exam-shell) .card:not(.table-card):not(.tutor):not(.notifications):not(.tool-panel):not(.question-card):not(.completion):not(.profile-main),
+  .app:not(.exam-shell) .stat-card,
+  .app:not(.exam-shell) .continue-card:not(.practice-hero) {
+    transition: transform 220ms cubic-bezier(.2,.7,.2,1), box-shadow 220ms ease, border-color 180ms ease;
+  }
+
+  .app:not(.exam-shell) .card:not(.table-card):not(.tutor):not(.notifications):not(.tool-panel):not(.question-card):not(.completion):not(.profile-main):hover,
+  .app:not(.exam-shell) .stat-card:hover,
+  .app:not(.exam-shell) .continue-card:not(.practice-hero):hover {
+    transform: translateY(-3px);
+    border-color: color-mix(in srgb, var(--primary) 22%, var(--app-border));
+    box-shadow: 0 12px 28px #0f172a12;
+  }
+
+  .app[data-theme=dark]:not(.exam-shell) .card:not(.table-card):not(.tutor):not(.notifications):not(.tool-panel):not(.question-card):not(.completion):not(.profile-main):hover,
+  .app[data-theme=dark]:not(.exam-shell) .stat-card:hover,
+  .app[data-theme=dark]:not(.exam-shell) .continue-card:not(.practice-hero):hover {
+    box-shadow: 0 14px 32px #0004;
+  }
+
+  .app:not(.exam-shell) .motion-tilt-card {
+    transform: perspective(900px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+    transition: transform 240ms cubic-bezier(.2,.7,.2,1), box-shadow 220ms ease, border-color 180ms ease;
+  }
+  .app:not(.exam-shell) .motion-tilt-card:hover {
+    transform: perspective(900px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  }
+
+  .app:not(.exam-shell) .motion-tilt-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    background: radial-gradient(360px circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%), #ffffff6b, transparent 68%);
+    transition: opacity 220ms ease;
+  }
+
+  .app:not(.exam-shell) .motion-tilt-card:hover::before { opacity: .55; }
+  .app[data-theme=dark]:not(.exam-shell) .motion-tilt-card:hover::before {
+    background: radial-gradient(360px circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%), #a5b4fc1c, transparent 68%);
+  }
+}
+
+.app:not(.exam-shell) :is(.button,.nav-item,.header-search,.bell-button,.text-button,.quick-actions button,.theme-options button,.settings-row,.answer,.tabs button,.mobile-nav button,.admin-mobile-nav button) {
+  transition: transform 180ms cubic-bezier(.2,.7,.2,1), background-color 180ms ease, color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.app:not(.exam-shell) :is(button,.button):active { transform: scale(.98); }
+.app:not(.exam-shell) .nav-item:before { opacity: 0; transform: scaleY(.55); transition: opacity 180ms ease, transform 220ms cubic-bezier(.2,.7,.2,1); }
+.app:not(.exam-shell) .nav-item.active:before { opacity: 1; transform: scaleY(1); }
+.app:not(.exam-shell) .nav-item svg { transition: transform 180ms cubic-bezier(.2,.7,.2,1); }
+.app:not(.exam-shell) .nav-item:hover svg { transform: translateX(2px); }
+.app:not(.exam-shell) .button svg,.app:not(.exam-shell) .text-button svg { transition: transform 180ms cubic-bezier(.2,.7,.2,1); }
+.app:not(.exam-shell) :is(.button,.text-button):hover svg { transform: translateX(2px); }
+
+.app:not(.exam-shell) .progress-fill {
+  transform-origin: left center;
+  animation: motion-progress-fill 720ms cubic-bezier(.2,.7,.2,1) both;
+}
+
+.app:not(.exam-shell) .bar {
+  transform-origin: center bottom;
+  animation: motion-chart-rise 680ms cubic-bezier(.2,.7,.2,1) both;
+  animation-delay: calc(var(--bar-index, 0) * 45ms);
+}
+
+.app:not(.exam-shell) .bar-column:nth-child(1) .bar { --bar-index: 0; }
+.app:not(.exam-shell) .bar-column:nth-child(2) .bar { --bar-index: 1; }
+.app:not(.exam-shell) .bar-column:nth-child(3) .bar { --bar-index: 2; }
+.app:not(.exam-shell) .bar-column:nth-child(4) .bar { --bar-index: 3; }
+.app:not(.exam-shell) .bar-column:nth-child(5) .bar { --bar-index: 4; }
+.app:not(.exam-shell) .bar-column:nth-child(6) .bar { --bar-index: 5; }
+.app:not(.exam-shell) .bar-column:nth-child(7) .bar { --bar-index: 6; }
+
+.app main [data-motion-reveal="pending"] {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.app main [data-motion-reveal="visible"] {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 420ms ease var(--motion-stagger, 0ms), transform 420ms cubic-bezier(.2,.7,.2,1) var(--motion-stagger, 0ms);
+}
+
+.app:not(.exam-shell) .motion-message {
+  animation: motion-message-in 260ms cubic-bezier(.2,.7,.2,1) both;
+}
+
+.app:not(.exam-shell) .attachment-preview {
+  animation: motion-preview-in 220ms cubic-bezier(.2,.7,.2,1) both;
+}
+
+.app:not(.exam-shell) .attach-image-button {
+  transition: color 180ms ease, background-color 180ms ease, box-shadow 180ms ease, transform 150ms ease;
+}
+.app:not(.exam-shell) .attach-image-button svg { transition: transform 180ms cubic-bezier(.2,.7,.2,1); }
+
+.app:not(.exam-shell) .attach-image-button:hover { color: var(--primary); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--primary) 22%, transparent); }
+.app:not(.exam-shell) .attach-image-button:hover svg { transform: scale(1.06); }
+.app:not(.exam-shell) .attach-image-button:active { transform: scale(.94); }
+.app[data-theme=dark] .attach-image-button:hover { background: #202a3d; }
+.app .stat-card strong { font-variant-numeric: tabular-nums; }
+
+@keyframes motion-progress-fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes motion-chart-rise { from { transform: scaleY(.05); opacity: .45; } to { transform: scaleY(1); opacity: 1; } }
+@keyframes motion-message-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes motion-preview-in { from { opacity: 0; transform: translateY(5px) scale(.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+
+@media (hover: none), (pointer: coarse) {
+  .app:not(.exam-shell) :is(.card,.stat-card,.continue-card,.motion-tilt-card):hover { transform: none; }
+  .app:not(.exam-shell) :is(.button,.nav-item,.text-button,.quick-actions button,.theme-options button,.settings-row,.answer,.tabs button,.mobile-nav button,.admin-mobile-nav button):active {
+    transform: scale(.98);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app *,
+  .app *::before,
+  .app *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+  .app .motion-tilt-card { transform: none !important; }
+  .app main [data-motion-reveal="pending"] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

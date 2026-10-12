@@ -119,6 +119,7 @@ body,.app{background:var(--app-bg)}
 .app[data-theme=dark] .exam-workspace .exam-math{color:#f8fafc}
 @media(prefers-reduced-motion:reduce){.app,.app *{transition:none!important}}
 @media(max-width:767px){
+  .app .chart-bars{gap:clamp(2px,calc((100vw - 320px)*.05 + 2px),10px)}
   .app .sidebar{display:none}
   .app .app-body{margin-left:0}
   .app main{padding-bottom:calc(112px + env(safe-area-inset-bottom))}
@@ -148,4 +149,84 @@ body,.app{background:var(--app-bg)}
   .app.ai-image-view:has(.attachment-previews) .quick-actions{bottom:calc(292px + env(safe-area-inset-bottom))}
   .app.practice-session main{padding-bottom:calc(112px + env(safe-area-inset-bottom))}
   .app.exam-shell main{padding:0}
+}
+
+html,body,#root{min-width:0;min-height:100%}
+.app-body,.app main,.dashboard-grid,.ai-layout,.tutor,.chat-messages,.assistant-message>div{min-width:0}
+.app main{overflow-wrap:anywhere}
+.app :is(button,a,input,select,textarea,summary,[tabindex]):focus-visible{outline:3px solid #6366f1;outline-offset:3px}
+.app:not([data-theme=dark]) :is(.stat-card>span:last-child,.chart-scale,.bar-column>span,.nav-label,.mobile-nav button,.profile-block small,.mode-switch,.brand small,.header-context,.header-context strong,.header-search){color:#64748b}
+.app[data-theme=dark] .inline-question-edit label{color:#d5dce8}
+.app[data-theme=dark] .attachment-placeholder{background:#151d2e;border-color:#3b475d;color:#cbd5e1}
+.app[data-theme=dark] .attachment-status{color:#cbd5e1}
+.app[data-theme=dark] .attachment-preview.error .attachment-status,.app[data-theme=dark] .attachment-error{color:#fbbf24}
+.app[data-theme=dark] .retry-attachment{color:#c7d2fe}
+.app[data-theme=dark] .theme-switcher summary:hover{background:#202a3d;color:#f8fafc}
+.exam-workspace[data-theme=dark] .theme-switcher summary:hover{background:#1a2335;color:#fff}
+
+@media(max-width:900px) and (min-width:768px){
+  .app .sidebar-bottom{display:block;padding:8px}
+  .app .sidebar-bottom .mode-switch{min-height:48px;padding:8px;justify-content:center;font-size:0}
+  .app .sidebar-bottom .mode-switch svg:last-child,.app .sidebar-bottom .profile-block{display:none}
+  .app .sidebar .nav-item>span{display:block;position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+}
+
+@media(max-width:767px){
+  .app.ai-image-view main{padding-bottom:calc(var(--ai-dock-height,200px) + 80px + env(safe-area-inset-bottom) + var(--ai-keyboard-inset,0px))}
+  .app.ai-image-view .ai-composer-dock{position:fixed;left:0;right:0;bottom:calc(80px + env(safe-area-inset-bottom) + var(--ai-keyboard-inset,0px));z-index:42;max-height:min(55dvh,420px);overflow-y:auto;padding:6px 10px max(8px,env(safe-area-inset-bottom));background:var(--app-bg);border-top:1px solid var(--app-border);box-shadow:0 -5px 20px #0f172a12}
+  .app[data-theme=dark].ai-image-view .ai-composer-dock{background:#0b1020;box-shadow:0 -5px 20px #0005}
+  .app.ai-image-view .quick-actions{position:static;left:auto;right:auto;bottom:auto;z-index:auto;display:flex;flex-wrap:nowrap;gap:7px;overflow-x:auto;padding:4px 0 8px;background:transparent;scrollbar-width:thin}
+  .app.ai-image-view .quick-actions button{flex:0 0 auto;min-height:40px;padding:8px 10px;white-space:nowrap}
+  .app.ai-image-view .image-composer-region{position:static;left:auto;right:auto;bottom:auto;z-index:auto;margin:0;padding:2px 0;background:transparent}
+  .app.ai-image-view .attachment-previews{max-width:100%;overscroll-behavior-x:contain}
+  .app.ai-image-view .ai-disclaimer{display:block;padding:6px 2px 0;font-size:10px;line-height:1.5}
+  .app.ai-image-view .chat-messages{scroll-padding-bottom:calc(var(--ai-dock-height,200px) + 80px)}
+  .app.ai-image-view .image-composer-row textarea{min-height:44px;max-height:96px}
+  .app.ai-image-view .image-sheet-backdrop{padding-bottom:env(safe-area-inset-bottom)}
+  .app.ai-image-view .image-attachment-sheet{max-height:85dvh;overflow-y:auto}
+  .app .attachment-preview{width:112px}
+  .app .attachment-status{overflow-wrap:anywhere}
+}
+
+@media(max-width:359px){
+  .app{overflow-x:clip}
+  .app main{padding-left:12px;padding-right:12px}
+  .app .topbar{padding-left:12px;padding-right:12px}
+  .app .header-actions{gap:8px}
+  .app .card{padding:16px}
+  .app .card.table-card,.app .card.tutor,.app .card.notifications{padding:0}
+  .app .continue-content{width:76%}
+  .app .graph-illustration{width:130px;right:-24px}
+  .app .stats-grid{gap:8px}
+  .app .stat-card{padding:12px}
+  .app .toolbar>.tabs{overflow-x:auto;justify-content:flex-start}
+  .app .chapter summary{padding:14px 10px;gap:8px}
+  .app .lesson-row{padding:14px 10px;gap:8px}
+  .app .lesson-row>div{min-width:0;overflow-wrap:anywhere}
+  .app .lesson-row .badge{white-space:normal}
+  .app .lesson-stepper button{font-size:9px}
+  .app .exam-mobile-controls{grid-template-columns:38px minmax(0,1fr) 38px 82px;gap:5px;padding-inline:8px}
+  .app .exam-main-grid{padding-inline:8px}
+  .app .exam-questions{padding-inline:12px}
+  .app .exam-question-tags{column-gap:10px}
+  .app .exam-question-body h2{overflow-wrap:anywhere}
+  .app .completion-stats{gap:8px}
+  .app.ai-image-view .ai-composer-dock{max-height:50dvh;padding-inline:8px}
+  .app.ai-image-view main{padding-left:12px;padding-right:12px}
+  .app .image-composer-row{gap:4px}
+}
+
+@media(max-height:500px) and (max-width:767px){
+  .app.ai-image-view .ai-composer-dock{max-height:45dvh}
+}
+
+@media print{
+  .app[data-theme=dark] .exam-workspace[data-theme=dark]{background:#fff!important;color:#121826!important;color-scheme:light}
+  .app[data-theme=dark] .exam-workspace[data-theme=dark] :is(.exam-questions,.exam-answer-label textarea,.exam-choice-grid button,.exam-dialog){background:#fff!important;color:#121826!important;border-color:#d8dce5!important}
+  .app[data-theme=dark] .exam-workspace[data-theme=dark] :is(.exam-question-number,.exam-question-body h2,.exam-math,.exam-difficulty,.exam-type-label,.exam-section-caption,.exam-answer-label,.exam-question-bottom,.exam-dialog-top h2,.exam-dialog>p){color:#121826!important}
+  .app[data-theme=dark] .exam-workspace[data-theme=dark] .exam-question-block{border-color:#d8dce5!important}
+  .app[data-theme=dark] .exam-workspace[data-theme=dark] .exam-answer-label textarea::placeholder{color:#667085!important}
+  .exam-workspace[data-theme=light]{background:#fff!important;color:#121826!important;color-scheme:light}
+  .exam-workspace[data-theme=light] :is(.exam-questions,.exam-answer-label textarea,.exam-choice-grid button){background:#fff!important;color:#121826!important}
+  .exam-workspace :is(.exam-question-number,.exam-question-body h2,.exam-math,.exam-difficulty){color:#121826!important}
 }
